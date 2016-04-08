@@ -264,7 +264,10 @@ public class AZDropdownMenu: UIView {
     public func showMenuFromView(view:UIView) {
 
         view.addSubview(self)
-
+        let rect = view.frame
+        let menuFrame = CGRectMake(0, rect.origin.y, frame.size.width, menuHeight)
+        self.menuView.frame = menuFrame
+        
         animateOvelay(overlayAlpha, interval: 0.4, completionHandler: nil)
         menuView.reloadData()
         UIView.animateWithDuration(
